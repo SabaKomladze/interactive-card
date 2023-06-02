@@ -1,0 +1,33 @@
+.check {
+  margin: 91px auto 0;
+  display: block;
+}
+.btn {
+  background: #21092f;
+  border-radius: 8px;
+  width: 327px;
+  height: 53px;
+  display: block;
+  margin: 48px auto 0;
+}
+.thank {
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 3.42222px;
+  color: #21092f;
+  margin-top: 35px;
+}
+.details {
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  color: #8f8694;
+  margin-top: 16px;
+}
+@media (min-width: 1440px) {
+  .added {
+    margin-top: 100px;
+    margin-left: 127px;
+  }
+}
