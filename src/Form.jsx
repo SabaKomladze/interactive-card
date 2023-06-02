@@ -2,6 +2,7 @@ import "./App.css";
 
 function Form(props) {
   let containLetters = /[a-zA-Z]/.test(props.number);
+  let containLetterscvv = /[a-zA-Z]/.test(props.number);
   let containNumbers = /[0-9]/.test(props.name);
   function changeToNumbers(e) {
     props.setNumber(() => {
@@ -66,7 +67,7 @@ function Form(props) {
         <label className="cardnumber text">Card Number</label>
         <input
           className={
-            containLetters == true || props.numberCheck ? "error" : "input"
+            containLetters == true || props.numberCheck ? "errorNum" : "input"
           }
           placeholder="e.g. 1234 5678 9123 0000"
           onChange={changeToNumbers}
@@ -126,13 +127,7 @@ function Form(props) {
                 maxLength={2}
               />
             </div>
-            <p
-              className={
-                containLetters == true || props.monthCheck
-                  ? "smallError"
-                  : "null"
-              }
-            >
+            <p className={props.monthCheck ? "smallError" : "null"}>
               Can’t be blank
             </p>
           </div>
@@ -141,9 +136,8 @@ function Form(props) {
             <label className="text ccv">CVV</label>
             <input
               className={
-                containLetters == true || props.cvvCheck
-                  ? "error"
-                  : " medium input"
+                (containLetterscvv =
+                  true && props.cvvCheck ? "error" : " medium input")
               }
               placeholder="e.g. 123"
               onChange={(event) => {
@@ -151,13 +145,7 @@ function Form(props) {
               }}
               maxLength={3}
             />
-            <p
-              className={
-                containLetters == true || props.monthCheck
-                  ? "smallError"
-                  : "null"
-              }
-            >
+            <p className={props.monthCheck ? "smallError" : "null"}>
               Can’t be blank
             </p>
           </div>
@@ -175,7 +163,9 @@ function Form(props) {
               props.year.length !== 0 &&
               props.cvv.length === 3
             ) {
-              props.setChange(true);
+              if (!containLetters || !containLetterscvv) {
+                props.setChange(true);
+              }
             }
           }}
         >
